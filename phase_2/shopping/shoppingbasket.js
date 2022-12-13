@@ -14,7 +14,7 @@ class ShoppingBasket {
     // let total = 0;
     // this.list.forEach(candy => total += candy.getPrice());
     // return total;
-  }
+  } 
 }
 
 module.exports = ShoppingBasket;
