@@ -19,10 +19,9 @@ const filterSearch = (candy, str, price) => {
 }
 
 const searchCandies = (str, price) => {
-  let sweets = [];
   const string = str.charAt(0).toUpperCase() + str.slice(1);
-  sweets = (candies.filter(candy => filterSearch(candy,string,price)));
-  return sweets.map(sweet => sweet.name)
+  const sweets = (candies.filter(candy => filterSearch(candy,string,price))).map(sweet => sweet.name);
+  return sweets
 }
 
 module.exports = searchCandies;
