@@ -1,6 +1,6 @@
 class Thermostat {
   constructor() {
-    this.temp = 20;
+    this.temp = {temperature: 20};
     this.PSM = true;
   }
   getTemperature() {
@@ -8,16 +8,16 @@ class Thermostat {
   }
 
   up() {
-    if (this.PSM && this.temp < 25) {
-      this.temp += 1;
-    } else if (!this.PSM && this.temp < 32) {
-      this.temp += 1;
+    if (this.PSM && this.temp.temperature < 25) {
+      this.temp.temperature += 1;
+    } else if (!this.PSM && this.temp.temperature < 32) {
+      this.temp.temperature += 1;
     }
   }
 
   down() {
-    if (this.temp > 10) {
-      this.temp -= 1;
+    if (this.temp.temperature > 10) {
+      this.temp.temperature -= 1;
     }
   }
 
@@ -26,13 +26,13 @@ class Thermostat {
   }
 
   reset() {
-    this.temp = 20;
+    this.temp.temperature = 20;
   }
 
   energyUsage() {
-    if (this.temp < 18) {
+    if (this.temp.temperature < 18) {
       return 'low-usage';
-    } else if (this.temp <= 25) {
+    } else if (this.temp.temperature <= 25) {
       return 'medium-usage';
     } else {
       return 'high-usage';

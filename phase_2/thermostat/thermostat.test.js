@@ -3,20 +3,20 @@ const Thermostat = require('./thermostat');
 describe('Thermostat class', () => {
   it('starts with temp of 20', () => {
     const thermostat = new Thermostat();
-    expect(thermostat.getTemperature()).toBe(20);
+    expect(thermostat.getTemperature()).toEqual({"temperature":20});
   });
 
   it('can increase the temperature', () => {
     const thermostat = new Thermostat();
     thermostat.up();
     thermostat.up();
-    expect(thermostat.getTemperature()).toBe(22);
+    expect(thermostat.getTemperature()).toEqual({"temperature":22});
   });
 
   it('can decrease the temperature', () => {
     const thermostat = new Thermostat();
     thermostat.down();
-    expect(thermostat.getTemperature()).toBe(19);
+    expect(thermostat.getTemperature()).toEqual({"temperature":19});
   });
 
   it('cannot decrease past 10', () => {
@@ -24,7 +24,7 @@ describe('Thermostat class', () => {
     for (let i = 0 ; i < 15 ; i++) {
       thermostat.down();
     }
-    expect(thermostat.getTemperature()).toBe(10);
+    expect(thermostat.getTemperature()).toEqual({"temperature":10});
   });
 
   it('cannot increase past 25 by default', () => {
@@ -32,7 +32,7 @@ describe('Thermostat class', () => {
     for (let i = 0 ; i < 10 ; i ++) {
       thermostat.up();
     }
-    expect(thermostat.getTemperature()).toBe(25);
+    expect(thermostat.getTemperature()).toEqual({"temperature":25});
   });
 
   it('cannot increase past 32 when PSM is off', () => {
@@ -41,7 +41,7 @@ describe('Thermostat class', () => {
     for (let i = 0 ; i < 15 ; i ++) {
       thermostat.up();
     }
-    expect(thermostat.getTemperature()).toBe(32);
+    expect(thermostat.getTemperature()).toEqual({"temperature":32});
   });
 
   it('can turn PSM back on', () => {
@@ -51,7 +51,7 @@ describe('Thermostat class', () => {
     for (let i = 0 ; i < 15 ; i ++) {
       thermostat.up();
     }
-    expect(thermostat.getTemperature()).toBe(25);
+    expect(thermostat.getTemperature()).toEqual({"temperature":25});
   });
 
   it('can reset to 20', () => {
@@ -59,9 +59,9 @@ describe('Thermostat class', () => {
     for (let i = 0 ; i < 5 ; i ++) {
       thermostat.up();
     }
-    expect(thermostat.getTemperature()).toBe(25);
+    expect(thermostat.getTemperature()).toEqual({"temperature":25});
     thermostat.reset();
-    expect(thermostat.getTemperature()).toBe(20);
+    expect(thermostat.getTemperature()).toEqual({"temperature":20});
   });
 
   it('will share the correct energy usage when low', () => {
@@ -93,6 +93,6 @@ describe('Thermostat class', () => {
     thermostat.up();
     thermostat.up();
     thermostat.down();
-    expect(thermostat.getTemperature()).toBe(21);
+    expect(thermostat.getTemperature()).toEqual({"temperature":21});
   });
 })
